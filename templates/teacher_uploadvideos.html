@@ -1,0 +1,133 @@
+{% include 'teacherheader.html'%}
+
+<!-- banner -->
+<!--     <div class="banner-agile" >
+        <ul >
+            <li class="active">
+                <div class="banner-w3ls-3" >
+                    <br><br><br><br>
+<center>
+    <form method="post" enctype="multipart/form-data">
+        <table class="table" style="width: 500px;color: white">
+            <tr>
+                <th>Upload Video</th>
+                <td><input type="file" required class="form-control" name="i"></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit"    class="btn btn-success" name="uploadvideo"></td>
+            </tr>
+        </table>
+    </form>
+</center>
+      </div>
+            </li>
+            
+        </ul>
+        
+        <div class="banner-text-posi-w3ls">
+            
+        </div>
+        </div>
+<center>
+    <h1>View Videos</h1>
+    <table class="table" style="width: 500px">
+        <tr>
+            <th>Slno</th>
+            <th>Teacher</th>
+            <th>Subject</th>
+            <th>Uploaded Videos</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+        {% for row in data['videoview']%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{row['fname']}}</td>
+            <td>{{row['subject']}}</td>
+            <td><video width="320" height="240" controls>
+  <source src="{{row['video']}}" type="video/mp4">
+ 
+</video></td>
+            
+            <td>{{row['date']}}</td>
+            <td>{{row['status']}}</td>
+            <td><a class="btn btn-success" href="teacher_viewkeywords?vid={{row['video_id']}}">View Keywords</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</center> -->
+
+<center>
+        <h2>Video Uploading and Framing</h2>
+
+    {% if data['frame'] %}
+    <table class="table" width="500px">
+        <tr>
+            <td>Frame</td>
+            <td>Content</td>
+        </tr>
+    {% for row in data['frame'] %}
+        <tr>
+            <td><a href="/{{ row['path'] }}" download><img style="width:600px;height:200px;" src="/{{ row['path'] }}"></a></td>
+            <td>{{ row['frames'] }}</td>
+        </tr>
+    {% endfor %}
+
+    </table>
+    {% else %}
+
+    <form method="post" enctype="multipart/form-data">
+        <table class="table" style="width:500px" align="center">
+            <tr>
+                <td align="center">Video</td>
+                <td align="center"><input type="file" name="video" class="form-control"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" name="upload" value="Upload" class="btn btn-success">
+                    </td>
+            </tr>
+            
+        </table>
+    </form>
+
+
+
+
+
+
+
+    <div class="container">
+    
+    <div class="card-deck" >
+        {% for row in data['video'] %}
+        <div class="row col-md-4" >
+      <div class="card" style="padding: 3px">
+        <video  controls>
+            <source src="/{{ row['video'] }}" type="video/mp4">
+            <source src="/{{ row['video'] }}" type="video/ogg">
+          Your browser does not support the video tag.
+          </video>
+        <div class="card-body text-center">
+        <p class="card-text"><a href="?vid={{ row['video_id'] }}&path={{ row['video'] }}" class="btn btn-info">Get Frames</a>
+            <a href="?vids={{ row['video_id'] }}" class="btn btn-success">View Frames</a></p>
+          
+         
+        </div>
+      </div>
+      
+    </div>
+    {% endfor %}
+
+    </div>
+  </div>
+
+
+
+    <!-- ############################################## -->
+
+
+
+    {% endif %}
+    </center>
+
+{% include 'footer.html'%}

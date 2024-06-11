@@ -1,0 +1,42 @@
+{% include 'adminheader.html'%}
+
+<!-- banner -->
+    <div class="banner-agile" >
+        <ul >
+            <li class="active">
+                <div class="banner-w3ls-3" >
+                    <br><br><br><br>
+<center>
+    <h1  style="color: white">view Teacher</h1>
+    <table class="table" style="width: 500px;color: white">
+        <tr>
+            <th>Slno</th>
+            <th>first name</th>
+            <th>last name</th>
+            <th>place</th>
+            <th>Phone No</th>
+            <th>Email</th>
+        </tr>
+        {% for row in data['viewteacher']%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{row['fname']}}</td>
+            <td>{{row['lname']}}</td>
+
+            <td>{{row['place']}}</td>
+
+            <td>{{row['phone']}}</td>
+            <td>{{row['email']}}</td>
+            <td><a class="btn btn-success" href="?action=delete&uid={{row['teacher_id']}}">delete</a></td>
+          
+            <td><a class="btn btn-success" href="admin_assignsubject?tid={{row['teacher_id']}}">Assign Subject</a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+
+
+
+ </div></li></ul></di>
+{% include 'footer.html' %}

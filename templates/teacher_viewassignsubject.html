@@ -1,0 +1,31 @@
+{% include 'teacherheader.html'%}
+<!-- banner -->
+    <div class="banner-agile" >
+        <ul >
+            <li class="active">
+                <div class="banner-w3ls-3" >
+                    <br><br><br><br>
+<center>
+    <h1  style="color: white"> Assigned Subject</h1>
+    <table  class="table" style="width: 500px;color: white">
+        <tr>
+            <th>Slno</th>
+            <th>Subject Name</th>
+            <th>Teacher name</th>
+            
+        </tr>
+        {% for row in data['viewassign']%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{row['subject']}}</td>
+            <td>{{row['fname']}}</td>
+            <td><a class="btn btn-success" href="teacher_uploadvideos?sid={{row['subject_id']}}">Upload Videos</a></td>
+
+            
+
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+ </div></li></ul></div>
+{% include 'footer.html' %}

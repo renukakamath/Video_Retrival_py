@@ -1,0 +1,26 @@
+{% include 'teacherheader.html'%}
+<!-- banner -->
+    <div class="banner-agile" >
+        <ul >
+            <li class="active">
+                <div class="banner-w3ls-3" >
+                    <br><br><br><br>
+<center>
+	<h1   style="color: white">View Keywords</h1>
+	<table class="table" style="width: 500px;color: white">
+		<tr>
+			<th>Slno</th>
+			<th>Frames</th>
+			<th>Keyword</th>
+		</tr>
+		{% for row in data['keywordview']%}
+		<tr>
+			<td>{{loop.index}}</td>
+			<td>{{row['frames']}}</td>
+			<td>{{row['keyword']}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+ </div></li></ul></div>
+{% include 'footer.html'%}

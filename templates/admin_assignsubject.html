@@ -1,0 +1,27 @@
+{% include 'adminheader.html'%}
+
+<!-- banner -->
+    <div class="banner-agile">
+        <ul >
+            <li class="active">
+                <div class="banner-w3ls-3" >
+                    <center>
+                        <br><br><br><br><br><br><br>
+<h1  style="color: white">Assign Subject</h1>
+<form method="post">
+	<table class="table" style="width: 500px;color: white" >
+	<tr>
+		<th>Subject</th>
+		<td><select name="sub" required class="form-control">
+			<option>---Select---</option>
+			{% for row in data['subdrop']%}
+			<option value="{{row['subject_id']}}">{{row['subject']}}</option>
+			{% endfor %}
+		</select></td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2"><input type="submit"   class="btn btn-success"  name="subjectadd"></td>
+	</tr>
+</table>
+</form>
+{% include 'footer.html'%}

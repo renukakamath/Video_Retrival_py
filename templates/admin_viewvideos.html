@@ -1,0 +1,38 @@
+{% include 'adminheader.html'%}
+
+<!-- banner -->
+    <div class="banner-agile" >
+        <ul >
+            <li class="active">
+                <div class="banner-w3ls-3" >
+                    <br><br><br><br>
+<center>
+    <h1 style="color: white">View Videos</h1>
+    <table class="table" style="width: 500px;color: white">
+        <tr>
+            <th>Slno</th>
+            <th>Teacher</th>
+            <th>Subject</th>
+            <th>Uploaded Videos</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+        {% for row in data['videoview']%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{row['fname']}}</td>
+            <td>{{row['subject']}}</td>
+            <td><video width="320" height="240" controls>
+  <source src="{{row['video']}}" type="video/mp4">
+ 
+</video></td>
+            
+            <td>{{row['date']}}</td>
+            <td>{{row['status']}}</td>
+            <td><a class="btn btn-success" href="admin_viewkeywords?vid={{row['video_id']}}">View Keywords</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+ </div></li></ul></div>
+{% include 'footer.html'%}

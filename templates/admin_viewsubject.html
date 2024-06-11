@@ -1,0 +1,31 @@
+{% include 'adminheader.html'%}
+
+
+<!-- banner -->
+    <div class="banner-agile">
+        <ul >
+            <li class="active">
+                <div class="banner-w3ls-3" >
+                    <center>
+                        <br><br><br><br><br><br><br>
+ 
+
+<center>
+    <h1 style="color: white">View Subject</h1>
+    <table  class="table" style="width: 500px;color: white">
+        <tr>
+            <th>Slno</th>
+            <th>Subject</th>
+        </tr>
+        {% for row in data['viewsubject']%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{row['subject']}}</td>
+            <td><a class="btn btn-success" href="?action=delete&sid={{row['subject_id']}}">delete</a></td>
+           <!--  <td><a class="btn btn-success" href="?action=update&sid={{row['subject_id']}}">Update</a></td> -->
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+{% include 'footer.html' %}
+

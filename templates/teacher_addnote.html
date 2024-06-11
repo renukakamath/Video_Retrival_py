@@ -1,0 +1,57 @@
+{% include 'teacherheader.html'%}
+<!-- banner -->
+    <div class="banner-agile">
+        <ul >
+            <li class="active">
+                <div class="banner-w3ls-3" >
+                    <center>
+                        <br><br><br><br><br><br><br>
+<center>
+	<h1  style="color: white">Add notes</h1>
+<form method="post">
+	<table class="table" style="width: 500px;color: white">
+		<tr>
+			<th>note</th>
+			<td><textarea name="note"  required class="form-control" ></textarea></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit"   class="btn btn-success"  name="addnote"></td>
+		</tr>
+	</table>
+</form>
+</center>
+
+
+                </div>
+            </li>
+            
+        </ul>
+        
+        <div class="banner-text-posi-w3ls">
+            
+        </div>
+        </div>
+<center>
+	<h1>View Notes</h1>
+	<table class="table" style="width: 500px">
+		<tr>
+			<th>Slno</th>
+			<th>Notes</th>
+			<th>Teacher</th>
+			<th>Subject</th>
+			<th>date</th>
+			<th>Status</th>
+		</tr>
+		{% for row in data['notes']%}
+		<tr>
+			<td>{{loop.index}}</td>
+			<td>{{row['notes']}}</td>
+			<td>{{row['fname']}}</td>
+			<td>{{row['subject']}}</td>
+			<td>{{row['date']}}</td>
+			<td>{{row['status']}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+{% include 'footer.html'%}

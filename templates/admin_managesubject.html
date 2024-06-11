@@ -1,0 +1,70 @@
+{% include 'adminheader.html'%}
+
+
+<!-- banner -->
+    <div class="banner-agile">
+        <ul >
+            <li class="active">
+                <div class="banner-w3ls-3" >
+                    <center>
+                        <br><br><br><br><br><br><br>
+    <h1 style="color: white">Manage Subject</h1>
+
+    {% if  data['updatesubject'] %}
+    <form method="post">
+        <table class="table" style="width: 500px;color: white" >
+            <tr>
+                <th>Subject</th>
+                <td><input type="text" required class="form-control" value="{{data['updatesubject'][0]['subject']}}"  name="sub"></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2" ><input type="submit" class="btn btn-success" name="update"></td>
+            </tr>
+          
+        </table>
+    </form>
+{% else %}
+    <form method="post">
+        <table class="table" style="width: 500px;color: white" >
+            <tr>
+                <th>Subject</th>
+                <td><input type="text" required class="form-control"  name="sub"></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit" class="btn btn-success" name="subject"></td>
+            </tr>
+          
+        </table>
+    </form>
+</center>
+{% endif %}
+                </div>
+            </li>
+            
+        </ul>
+        
+        <div class="banner-text-posi-w3ls">
+            
+        </div>
+        </div>
+
+
+<!-- <center>
+    <h1>View Subject</h1>
+    <table  class="table" style="width: 500px">
+        <tr>
+            <th>Slno</th>
+            <th>Subject</th>
+        </tr>
+        {% for row in data['viewsubject']%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{row['subject']}}</td>
+            <td><a class="btn btn-success" href="?action=delete&sid={{row['subject_id']}}">delete</a></td>
+            <td><a class="btn btn-success" href="?action=update&sid={{row['subject_id']}}">Update</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</center> -->
+{% include 'footer.html' %}
+
